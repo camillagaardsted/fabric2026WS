@@ -1,0 +1,108 @@
+table 'HR Ansat'
+	lineageTag: ecfb5e57-c4ff-4bed-9a37-2dd7874dbe10
+
+	column AnsatID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fea606f-bdbf-4c32-be17-b2292f4a4054
+		summarizeBy: count
+		sourceColumn: AnsatID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fornavn
+		dataType: string
+		lineageTag: bc360b8c-8144-4979-a3f8-d079322fb8bc
+		summarizeBy: none
+		sourceColumn: Fornavn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Efternavn
+		dataType: string
+		lineageTag: f836c2ea-3a28-4291-8a57-8d74efffbeb3
+		summarizeBy: none
+		sourceColumn: Efternavn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salgsmaal
+		dataType: int64
+		formatString: 0
+		lineageTag: 1af3714a-8560-4cbe-9117-799d2549a302
+		summarizeBy: sum
+		sourceColumn: Salgsmaal
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChefID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e45c55a-7055-4127-8962-76319000c7b0
+		summarizeBy: count
+		sourceColumn: ChefID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Foedt
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8a2740b0-13f2-4355-8cbc-82ad1ba29810
+		summarizeBy: none
+		sourceColumn: Foedt
+
+		variation Variation
+			isDefault
+			relationship: c82e0c29-effa-44e2-b82d-493023db9fbd
+			defaultHierarchy: LocalDateTable_d152c9de-afec-452e-ae18-e51240f3b953.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AnsatDato
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e1ea2f58-cf5d-4353-a0bd-f1216420c586
+		summarizeBy: none
+		sourceColumn: AnsatDato
+
+		variation Variation
+			isDefault
+			relationship: 9fb2d147-f143-4ca6-b0d0-04fd8bd17b6a
+			defaultHierarchy: LocalDateTable_02a31ad6-60e1-436b-9879-63e428fdf71c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AfdID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7902ab0d-9add-4303-afa6-12aae6663e27
+		summarizeBy: none
+		sourceColumn: AfdID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tlf
+		dataType: int64
+		formatString: 0
+		lineageTag: 131fd72a-7e51-4d60-b0ad-c3394de000c4
+		summarizeBy: sum
+		sourceColumn: Tlf
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'HR Ansat' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("localhost"),
+				    Thehandel = Source{[Name="Thehandel"]}[Data],
+				    HR_Ansat = Thehandel{[Schema="HR",Item="Ansat"]}[Data]
+				in
+				    HR_Ansat
+
+	annotation PBI_ResultType = Table
+

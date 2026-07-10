@@ -1,0 +1,45 @@
+table 'HR Afdeling'
+	lineageTag: 871287b3-f8ad-4c94-8917-2cb0b5cc3856
+
+	measure 'Antal ansatte' = COUNTROWS('HR Ansat')
+		formatString: 0
+		lineageTag: 56d27f5a-e622-4e6d-9412-c4f9815e0410
+
+	column AfdID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b0aaaeb-7af0-4eb9-8be7-49bdf37bb095
+		summarizeBy: none
+		sourceColumn: AfdID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Navn
+		dataType: string
+		lineageTag: c7004211-f713-4cf0-adaa-83d7beeca2d6
+		summarizeBy: none
+		sourceColumn: Navn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salgsmaal
+		dataType: int64
+		formatString: 0
+		lineageTag: 12c87228-0ac7-4e05-8235-40443d77a63f
+		summarizeBy: none
+		sourceColumn: Salgsmaal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'HR Afdeling' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("localhost"),
+				    Thehandel = Source{[Name="Thehandel"]}[Data],
+				    HR_Afdeling = Thehandel{[Schema="HR",Item="Afdeling"]}[Data]
+				in
+				    HR_Afdeling
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,20 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: da-DK
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["HR Afdeling","HR Ansat"]
+
+ref table 'HR Afdeling'
+ref table 'HR Ansat'
+ref table DateTableTemplate_071085b4-0c29-461c-8e50-ab45c749d840
+ref table LocalDateTable_d152c9de-afec-452e-ae18-e51240f3b953
+ref table LocalDateTable_02a31ad6-60e1-436b-9879-63e428fdf71c
+
+ref cultureInfo en-US
+

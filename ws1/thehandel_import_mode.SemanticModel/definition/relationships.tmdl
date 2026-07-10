@@ -1,0 +1,16 @@
+relationship c82e0c29-effa-44e2-b82d-493023db9fbd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HR Ansat'.Foedt
+	toColumn: LocalDateTable_d152c9de-afec-452e-ae18-e51240f3b953.Date
+
+relationship 9fb2d147-f143-4ca6-b0d0-04fd8bd17b6a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HR Ansat'.AnsatDato
+	toColumn: LocalDateTable_02a31ad6-60e1-436b-9879-63e428fdf71c.Date
+
+relationship 9f6d9431-074d-4a8a-92a4-44a2a032bb21
+	fromColumn: 'HR Ansat'.AfdID
+	toColumn: 'HR Afdeling'.AfdID
+
+	annotation PBI_IsFromSource = FS
+
