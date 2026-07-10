@@ -1,0 +1,75 @@
+table Geography
+	lineageTag: da14ae81-df1d-4f9c-91dd-75594b9ab3fa
+	sourceLineageTag: [dbo].[Geography]
+
+	column GeographyID
+		dataType: int64
+		formatString: 0
+		lineageTag: dc767163-d4bd-44a9-8cbf-187ae38710a7
+		sourceLineageTag: GeographyID
+		summarizeBy: count
+		sourceColumn: GeographyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZipCodeBKey
+		dataType: string
+		lineageTag: 4fdf01eb-2b27-4522-aba7-55677f9e2811
+		sourceLineageTag: ZipCodeBKey
+		summarizeBy: none
+		sourceColumn: ZipCodeBKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column County
+		dataType: string
+		lineageTag: 1d56b9fe-60d1-4fff-ac02-00ff9e170302
+		sourceLineageTag: County
+		summarizeBy: none
+		sourceColumn: County
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 46b9aa50-97be-412e-b05b-fe09cc7a14ea
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 05338cc2-e18f-4cbf-a829-73c2a58d7b30
+		sourceLineageTag: State
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: d237061c-6777-41d2-a658-657a2c57fde7
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZipCode
+		dataType: string
+		lineageTag: 15b34e88-81a5-433a-b09d-e92f163ef318
+		sourceLineageTag: ZipCode
+		summarizeBy: none
+		sourceColumn: ZipCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Geography = entity
+		mode: directLake
+		source
+			entityName: Geography
+			schemaName: dbo
+			expressionSource: 'DirectLake - MySampleWarehouse'
+

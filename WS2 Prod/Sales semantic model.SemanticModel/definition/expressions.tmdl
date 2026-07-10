@@ -1,0 +1,11 @@
+expression 'DirectLake - MySampleWarehouse' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/7bd62235-f2de-4435-b20c-c8bb0698b7f0/82f67cbe-b487-467b-a03e-ef4d7c768c3d", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 39f0cab6-2adf-466f-9d43-d8254844e0ee
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[HackneyLicense]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[Medallion]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[Time]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[Trip]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[Weather]"}},"objectType":"Table"}]
+
