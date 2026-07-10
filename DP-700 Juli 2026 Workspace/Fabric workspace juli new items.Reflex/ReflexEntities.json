@@ -1,0 +1,49 @@
+[
+  {
+    "uniqueIdentifier": "6b2b784a-81fe-4e53-9ab2-3bbda0252635",
+    "payload": {
+      "name": "RealTimeHub",
+      "connection": {
+        "scope": "Workspace",
+        "tenantId": "4eb89e67-956b-4339-a451-0ff572828f81",
+        "workspaceId": "0b6a0599-c257-4d45-b1a0-752287cd3941",
+        "eventGroupType": "Microsoft.Fabric.WorkspaceEvents"
+      },
+      "filterSettings": {
+        "eventTypes": [
+          {
+            "name": "Microsoft.Fabric.ItemCreateSucceeded"
+          }
+        ],
+        "filters": []
+      }
+    },
+    "type": "realTimeHubSource-v1"
+  },
+  {
+    "uniqueIdentifier": "820d5f9f-85a6-4cd3-bbf2-fa2a92b12e72",
+    "payload": {
+      "name": "WorkspaceEvents event",
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SourceEventStep\",\"id\":\"f84e1d10-b7fd-4822-a2dd-f73297e012e8\",\"rows\":[{\"name\":\"SourceSelector\",\"kind\":\"SourceReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"6b2b784a-81fe-4e53-9ab2-3bbda0252635\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "c1dde4ef-6391-4b9e-8506-42e7cb911175",
+    "payload": {
+      "name": "WorkspaceEvents event alert",
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"steps\":[{\"id\":\"06ebf390-6c3a-4543-82e6-00d223649067\",\"name\":\"FieldsDefaultsStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"820d5f9f-85a6-4cd3-bbf2-fa2a92b12e72\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"}]},{\"id\":\"acaadb21-fb54-4a6e-b07c-4e29a4cd660a\",\"name\":\"EventDetectStep\",\"rows\":[{\"arguments\":[],\"kind\":\"OnEveryValue\",\"name\":\"OnEveryValue\"}]},{\"id\":\"9ff20fd5-337b-4783-8d57-1dc79c69ee1a\",\"name\":\"ActStep\",\"rows\":[{\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"en-us\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Camilla.Gaardsted@superusers.dk\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Activator alert WorkspaceEvents event alert\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"name\":\"string\",\"type\":\"string\",\"value\":\"The condition for 'WorkspaceEvents event alert' has been met \"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"itemName\"}],\"kind\":\"EventFieldReference\",\"type\":\"complex\"},{\"name\":\"string\",\"type\":\"string\",\"value\":\" \"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[{\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"itemName\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"itemName\"}],\"kind\":\"EventFieldReference\",\"name\":\"reference\",\"type\":\"complexReference\"}],\"kind\":\"NameReferencePair\",\"type\":\"complex\"}]}],\"kind\":\"TeamsMessage\",\"name\":\"TeamsBinding\"}]}],\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.3.0\"}",
+        "settings": {
+          "shouldRun": true,
+          "shouldApplyRuleOnUpdate": true
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  }
+]

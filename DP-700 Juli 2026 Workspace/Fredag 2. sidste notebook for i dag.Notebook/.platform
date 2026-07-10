@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Fredag 2. sidste notebook for i dag"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d9fa5509-ad57-8fc4-439e-9749e1acbec7"
+  }
+}

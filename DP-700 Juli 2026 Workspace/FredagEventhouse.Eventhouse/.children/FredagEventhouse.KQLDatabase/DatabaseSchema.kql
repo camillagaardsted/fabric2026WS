@@ -1,0 +1,6 @@
+// KQL script
+// Use management commands in this script to configure your database items, such as tables, functions, materialized views, and more.
+
+
+.create-merge table bitcoinstock (Time:long, Current:real, Open:real, High:real, Low:real, EventProcessedUtcTime:datetime, PartitionId:long, EventEnqueuedUtcTime:datetime) 
+.create-merge table bitcoinaggdata (COUNT_All:long, MIN_Current:real, MAX_Current:real, AVG_Current:real, Window_End_Time:datetime) 

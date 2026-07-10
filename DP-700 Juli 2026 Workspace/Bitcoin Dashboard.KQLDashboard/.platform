@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDashboard",
+    "displayName": "Bitcoin Dashboard",
+    "description": "Bitcoin Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fbd7720c-97b3-9859-4604-1f5d0b36e446"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDatabase",
+    "displayName": "FredagEventhouse",
+    "description": "FredagEventhouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1994f618-dfd9-b6f2-4308-81f28441257b"
+  }
+}

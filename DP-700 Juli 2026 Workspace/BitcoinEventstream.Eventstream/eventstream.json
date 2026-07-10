@@ -1,0 +1,470 @@
+{
+  "sources": [
+    {
+      "id": "a8ddd68c-a2c4-4b94-803a-b72de630768b",
+      "name": "azure-event-hub",
+      "type": "AzureEventHub",
+      "properties": {
+        "dataConnectionId": "1061d908-1ed9-4624-ae85-ee8e70486564",
+        "consumerGroupName": "$Default",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      }
+    }
+  ],
+  "destinations": [
+    {
+      "id": "bd6a2691-7261-47c9-b919-320a3e09c2c5",
+      "name": "Eventhouse",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "1994f618-dfd9-b6f2-4308-81f28441257b",
+        "databaseName": "FredagEventhouse",
+        "tableName": "bitcoinstock",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "UdvaelgFelter"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "UdvaelgFelter",
+          "schema": {
+            "columns": [
+              {
+                "name": "Time",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Current",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Open",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "High",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Low",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventProcessedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "PartitionId",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventEnqueuedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "de3dc265-b7a2-4f10-8ae3-b1ec7101d8e6",
+      "name": "Eventhouse1",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "1994f618-dfd9-b6f2-4308-81f28441257b",
+        "databaseName": "FredagEventhouse",
+        "tableName": "bitcoinaggdata",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "GroupBy"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "GroupBy",
+          "schema": {
+            "columns": [
+              {
+                "name": "COUNT_All",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "MIN_Current",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "MAX_Current",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "AVG_Current",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Window_End_Time",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "ed7c8792-cf12-4ffb-b548-d36d4d0da0d4",
+      "name": "BitcoinEventstream-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "azure-event-hub"
+        }
+      ]
+    }
+  ],
+  "operators": [
+    {
+      "name": "GroupBy",
+      "type": "GroupBy",
+      "inputNodes": [
+        {
+          "name": "UdvaelgFelter"
+        }
+      ],
+      "properties": {
+        "aggregations": [
+          {
+            "aggregateFunction": "Count",
+            "arguments": [],
+            "column": {
+              "expressionType": "Wildcard"
+            },
+            "alias": "COUNT_All"
+          },
+          {
+            "aggregateFunction": "Minimum",
+            "arguments": [],
+            "column": {
+              "expressionType": "ColumnReference",
+              "node": null,
+              "columnName": "Current",
+              "columnPathSegments": []
+            },
+            "alias": "MIN_Current"
+          },
+          {
+            "aggregateFunction": "Maximum",
+            "arguments": [],
+            "column": {
+              "expressionType": "ColumnReference",
+              "node": null,
+              "columnName": "Current",
+              "columnPathSegments": []
+            },
+            "alias": "MAX_Current"
+          },
+          {
+            "aggregateFunction": "Average",
+            "arguments": [],
+            "column": {
+              "expressionType": "ColumnReference",
+              "node": null,
+              "columnName": "Current",
+              "columnPathSegments": []
+            },
+            "alias": "AVG_Current"
+          }
+        ],
+        "groupBy": [],
+        "window": {
+          "type": "Tumbling",
+          "properties": {
+            "duration": {
+              "value": 30,
+              "unit": "Second"
+            },
+            "offset": {
+              "value": 0,
+              "unit": "Second"
+            }
+          }
+        }
+      },
+      "inputSchemas": [
+        {
+          "name": "UdvaelgFelter",
+          "schema": {
+            "columns": [
+              {
+                "name": "Time",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Current",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Open",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "High",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Low",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventProcessedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "PartitionId",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventEnqueuedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UdvaelgFelter",
+      "type": "ManageFields",
+      "inputNodes": [
+        {
+          "name": "BitcoinEventstream-stream"
+        }
+      ],
+      "properties": {
+        "columns": [
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "Time",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "Time"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "Current",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "Current"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "Open",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "Open"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "High",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "High"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "Low",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "Low"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "EventProcessedUtcTime",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "EventProcessedUtcTime"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "PartitionId",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "PartitionId"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "EventEnqueuedUtcTime",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "EventEnqueuedUtcTime"
+          }
+        ]
+      },
+      "inputSchemas": [
+        {
+          "name": "BitcoinEventstream-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "Time",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Current",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Open",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "High",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Low",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventProcessedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "PartitionId",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventEnqueuedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "compatibilityLevel": "1.1"
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 76,
+  "changeDetection": {
+    "kind": "liveUpdates",
+    "fallbackRefreshRate": "5m",
+    "minRefreshRate": "30s"
+  },
+  "tiles": [
+    {
+      "id": "7925bff9-caa4-4097-b9cc-0b4f96c12433",
+      "title": "New Tile",
+      "visualType": "line",
+      "pageId": "4c59203b-3f42-47c2-9c32-267fad6867d3",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 19,
+        "height": 7
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "6aba6949-8f27-4527-b42d-7b4820e06cc9"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "seriesColors": {},
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        }
+      }
+    },
+    {
+      "id": "c73d22dd-e885-43d0-ac75-c34b0ddbb5a7",
+      "title": "Untitled",
+      "visualType": "table",
+      "pageId": "4c59203b-3f42-47c2-9c32-267fad6867d3",
+      "layout": {
+        "x": 0,
+        "y": 7,
+        "width": 9,
+        "height": 7
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "c2e86330-0c37-419d-a9bf-6febad23c7ad"
+      },
+      "visualOptions": {
+        "table__enableRenderLinks": true,
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "colorRules": []
+      }
+    },
+    {
+      "id": "3ddd0425-4224-4528-a268-5094aa20eeff",
+      "title": "New Tile",
+      "visualType": "line",
+      "pageId": "4c59203b-3f42-47c2-9c32-267fad6867d3",
+      "layout": {
+        "x": 9,
+        "y": 7,
+        "width": 15,
+        "height": 7
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "3928584d-870a-40f1-9397-d4f6eb4defab"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "seriesColors": {},
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        }
+      }
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "06447985-dbc3-4b58-b376-54c91f661808",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "491098b7-004e-4456-9554-34e0e0e4a115",
+      "kind": "kusto-trident",
+      "name": "FredagEventhouse",
+      "clusterUri": "",
+      "databaseArtifactId": "8441257b-81f2-4308-b6f2-dfd91994f618",
+      "database": "1994f618-dfd9-b6f2-4308-81f28441257b",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "4c59203b-3f42-47c2-9c32-267fad6867d3"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "491098b7-004e-4456-9554-34e0e0e4a115"
+      },
+      "text": "bitcoinstock\n| project EventEnqueuedUtcTime,Current",
+      "id": "6aba6949-8f27-4527-b42d-7b4820e06cc9",
+      "usedVariables": []
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "491098b7-004e-4456-9554-34e0e0e4a115"
+      },
+      "text": "bitcoinstock\r\n|order by  EventEnqueuedUtcTime desc\r\n| project EventEnqueuedUtcTime,Current | take 1",
+      "id": "c2e86330-0c37-419d-a9bf-6febad23c7ad",
+      "usedVariables": []
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "491098b7-004e-4456-9554-34e0e0e4a115"
+      },
+      "text": "bitcoinstock \n| project EventEnqueuedUtcTime, Current",
+      "id": "3928584d-870a-40f1-9397-d4f6eb4defab",
+      "usedVariables": []
+    }
+  ],
+  "embeddedApps": []
+}
