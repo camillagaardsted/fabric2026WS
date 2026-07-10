@@ -1,0 +1,1 @@
+This is an auto-created file for DP-700 Juli 2026 Workspace
