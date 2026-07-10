@@ -1,0 +1,80 @@
+table vProduct
+	lineageTag: 0ee8f14e-3839-408c-a2e6-0bde70852707
+	sourceLineageTag: [powerbi].[vProduct]
+
+	column Product
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: dc525eeb-4c37-4484-8a55-0a27d38e1646
+		sourceLineageTag: Product
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 690058ca-fccb-4a2d-bded-df1663cc1ff6
+		sourceLineageTag: product_id
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1e5ed37f-2423-4d42-b9c8-f0605d16e845
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 86cc01fb-605c-4989-8805-0ea2a6fa8f68
+		sourceLineageTag: Subcategory
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column retail_price
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(9, 2)
+		lineageTag: 9b515fb3-3cf0-4cf1-b675-db0414b31338
+		sourceLineageTag: retail_price
+		summarizeBy: none
+		sourceColumn: retail_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column cost_price
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(9, 2)
+		lineageTag: a63305ef-f651-4c72-a63c-7d72d65dc76e
+		sourceLineageTag: cost_price
+		summarizeBy: none
+		sourceColumn: cost_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition vProduct = entity
+		mode: directLake
+		source
+			entityName: vProduct
+			schemaName: powerbi
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

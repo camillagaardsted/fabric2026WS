@@ -1,0 +1,14 @@
+[
+  {
+    "name": "datalakejuli2026container",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "83ebfd57-98b5-41d4-98e4-608183d39ed3",
+        "location": "https://sueducation.dfs.core.windows.net",
+        "subpath": "/datalakejuli2026container"
+      }
+    }
+  }
+]

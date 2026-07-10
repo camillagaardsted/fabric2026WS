@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Warehouse",
+    "displayName": "TirsdagDatawareHouse",
+    "description": "det her warehouse bliver case sensitivt!"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c7b4a3c7-476d-95d1-489b-031e979384f7"
+  }
+}

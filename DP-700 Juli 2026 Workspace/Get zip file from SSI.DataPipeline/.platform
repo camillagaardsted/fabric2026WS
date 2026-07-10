@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Get zip file from SSI"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f9c15a2c-42ff-ae8c-4cb5-07afe75ae94b"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Moviedata Dataflow gen2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8deff03c-7b1a-b4f7-48af-dafd5ed35515"
+  }
+}

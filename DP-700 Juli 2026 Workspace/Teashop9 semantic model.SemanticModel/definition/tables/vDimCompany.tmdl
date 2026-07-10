@@ -1,0 +1,75 @@
+table vDimCompany
+	lineageTag: 4d7e1721-89d8-4d85-ac5b-6e156666c499
+	sourceLineageTag: [powerbi].[vDimCompany]
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: c4884349-74aa-48d2-b27e-6c8b62860678
+		sourceLineageTag: company_id
+		summarizeBy: none
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 49dee34e-dfb2-4764-9088-9a6982e216ea
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a36e7c36-ed74-49ae-82d6-8ec0a12d0655
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: be531035-80a6-41e8-ac82-2d6590ab0bdc
+		sourceLineageTag: Region
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 155afb32-eb85-4fe9-8bd5-b69e43651c87
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zipcode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 35558054-8ef7-493d-a2f9-7de9755acfb3
+		sourceLineageTag: Zipcode
+		summarizeBy: none
+		sourceColumn: Zipcode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vDimCompany = entity
+		mode: directLake
+		source
+			entityName: vDimCompany
+			schemaName: powerbi
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,60 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Moviedata Dataflow gen2",
+  "queryGroups": [
+    {
+      "id": "7084c1c4-f773-4972-b0bf-ba811a71034b",
+      "name": "GetMovieData"
+    }
+  ],
+  "documentLocale": "en-US",
+  "gatewayObjectId": "4e06d6e8-2c28-4b76-964f-38119c7f71b7",
+  "queriesMetadata": {
+    "Moviedata2023": {
+      "queryId": "bcac5dc8-9528-4bf2-b4ad-2812befcc74a",
+      "queryName": "Moviedata2023"
+    },
+    "Moviedata": {
+      "queryId": "5a036ca7-e8f4-4243-a1f8-c01d16590231",
+      "queryName": "Moviedata",
+      "queryGroupId": "7084c1c4-f773-4972-b0bf-ba811a71034b"
+    },
+    "year": {
+      "queryId": "71c4a093-325d-4395-ab5a-912933c65c72",
+      "queryName": "year",
+      "queryGroupId": "7084c1c4-f773-4972-b0bf-ba811a71034b",
+      "loadEnabled": false
+    },
+    "MovieDataAllYears": {
+      "queryId": "20958892-0723-4adc-a83b-fc15c1564d87",
+      "queryName": "MovieDataAllYears"
+    },
+    "GetMovieData": {
+      "queryId": "c35f033e-7b71-445b-af7e-22d83763ac2b",
+      "queryName": "GetMovieData",
+      "queryGroupId": "7084c1c4-f773-4972-b0bf-ba811a71034b",
+      "loadEnabled": false
+    },
+    "MovieDataAllYears_DataDestination": {
+      "queryId": "de42750a-290e-4612-ab0c-6efab45ab392",
+      "queryName": "MovieDataAllYears_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://www.boxofficemojo.com/",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"4e06d6e8-2c28-4b76-964f-38119c7f71b7\",\"DatasourceId\":\"a25e0ccc-a416-4ea8-a269-a1c550f72a1d\"}"
+    },
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"7d9c9478-de8c-44d4-9295-db4e064fa5cc\",\"DatasourceId\":\"7369c865-4a1d-4546-8980-d32f67394a0b\"}"
+    }
+  ]
+}

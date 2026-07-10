@@ -1,0 +1,12 @@
+relationship 2d20d70b-270f-bf12-c6ff-bbebffee44c9
+	fromColumn: vFactSale.employee_id
+	toColumn: vDimEmployee.employee_id
+
+relationship 58ea2157-b343-643f-2562-0f8250224028
+	fromColumn: vFactSale.product_id
+	toColumn: vProduct.product_id
+
+relationship 1365ad45-c0d9-1ffb-ef66-8ca89c9bc723
+	fromColumn: vFactSale.company_id
+	toColumn: vDimCompany.company_id
+

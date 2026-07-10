@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "CopyJob",
+    "displayName": "Copy Teashop9 tables"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "18e1855a-6487-b610-42a5-ecff668c8f85"
+  }
+}

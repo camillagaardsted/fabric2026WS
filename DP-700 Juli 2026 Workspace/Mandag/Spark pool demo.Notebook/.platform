@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Spark pool demo"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f71ce7e0-ea6e-a7e8-43b3-5554df396f5a"
+  }
+}

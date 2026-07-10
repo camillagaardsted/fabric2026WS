@@ -1,0 +1,513 @@
+{
+  "name": "{{Dataset_Name}}",
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "{{Dataset_Name}}",
+    "culture": "en-US",
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "TaxiTrips",
+        "sourceLineageTag": "[dbo].[TaxiTrips]",
+        "columns": [
+          {
+            "name": "doLocationId",
+            "dataType": "string",
+            "sourceColumn": "doLocationId",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "doLocationId",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "endLat",
+            "dataType": "double",
+            "sourceColumn": "endLat",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "endLat",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "endLon",
+            "dataType": "double",
+            "sourceColumn": "endLon",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "endLon",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "extra",
+            "dataType": "double",
+            "sourceColumn": "extra",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "extra",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "fareAmount",
+            "dataType": "double",
+            "sourceColumn": "fareAmount",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "fareAmount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "improvementSurcharge",
+            "dataType": "string",
+            "sourceColumn": "improvementSurcharge",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "improvementSurcharge",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "mtaTax",
+            "dataType": "double",
+            "sourceColumn": "mtaTax",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "mtaTax",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "passengerCount",
+            "dataType": "int64",
+            "sourceColumn": "passengerCount",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "passengerCount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "paymentType",
+            "dataType": "string",
+            "sourceColumn": "paymentType",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "paymentType",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "puLocationId",
+            "dataType": "string",
+            "sourceColumn": "puLocationId",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "puLocationId",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "puMonth",
+            "dataType": "int64",
+            "sourceColumn": "puMonth",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "puMonth",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "puYear",
+            "dataType": "int64",
+            "sourceColumn": "puYear",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "puYear",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "rateCodeId",
+            "dataType": "int64",
+            "sourceColumn": "rateCodeId",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "rateCodeId",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "startLat",
+            "dataType": "double",
+            "sourceColumn": "startLat",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "startLat",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "startLon",
+            "dataType": "double",
+            "sourceColumn": "startLon",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "startLon",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "storeAndFwdFlag",
+            "dataType": "string",
+            "sourceColumn": "storeAndFwdFlag",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "storeAndFwdFlag",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "tipAmount",
+            "dataType": "double",
+            "sourceColumn": "tipAmount",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "tipAmount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "tollsAmount",
+            "dataType": "double",
+            "sourceColumn": "tollsAmount",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "tollsAmount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "totalAmount",
+            "dataType": "double",
+            "sourceColumn": "totalAmount",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "totalAmount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "tpepDropoffDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "tpepDropoffDateTime",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "tpepDropoffDateTime",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "tpepPickupDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "tpepPickupDateTime",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "tpepPickupDateTime",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "tripDistance",
+            "dataType": "double",
+            "sourceColumn": "tripDistance",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "tripDistance",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "vendorId_str",
+            "dataType": "string",
+            "sourceColumn": "vendorId_str",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "vendorId_str",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "vendorId_lpep",
+            "dataType": "int64",
+            "sourceColumn": "vendorId_lpep",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "vendorId_lpep",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "TaxiTrips",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Afdeling",
+        "sourceLineageTag": "[hr].[Afdeling]",
+        "columns": [
+          {
+            "name": "AfdID",
+            "dataType": "int64",
+            "sourceColumn": "AfdID",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "AfdID",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Navn",
+            "dataType": "string",
+            "sourceColumn": "Navn",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Navn",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Salgsmaal",
+            "dataType": "int64",
+            "sourceColumn": "Salgsmaal",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Salgsmaal",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Afdeling",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "hr"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": "let\n    database = {{TDS_Endpoint}}\nin\n    database\n"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "SourceLineageTagType",
+        "value": "DatabaseFullyQualifiedName"
+      }
+    ]
+  }
+}

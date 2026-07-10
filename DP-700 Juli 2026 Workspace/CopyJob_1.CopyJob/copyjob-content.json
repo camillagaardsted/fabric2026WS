@@ -1,0 +1,620 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "AzureSqlTable",
+      "connectionSettings": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+          "database": "Thehandel"
+        },
+        "externalReferences": {
+          "connection": "77ddab04-b7ad-43c5-b7e5-cc605a5877b9"
+        }
+      }
+    },
+    "destination": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "be0f0d48-aa5c-bf51-447a-db88cea8f660",
+          "endPoint": "m6plqttlsu4uhjcrb72xfaupqe-tecwuc2xyjcu3mnaouriptjzie.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00",
+      "retry": 0
+    }
+  },
+  "activities": [
+    {
+      "id": "c88d9d6d-cb5d-49f3-82f0-fc257b141b25",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Kunde",
+            "table": "Firma"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "Kunde",
+            "table": "Firma"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "FirmaID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "FirmaID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "Navn",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "Navn",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "Adr1",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "Adr1",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "Adr2",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "25"
+              },
+              "destination": {
+                "name": "Adr2",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "PostNr",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "PostNr",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "LandID",
+                "type": "Byte",
+                "physicalType": "tinyint"
+              },
+              "destination": {
+                "name": "LandID",
+                "physicalType": "int"
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "686ef2eb-70e0-473b-a03c-e96734e79eb3",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Kunde",
+            "table": "Kontakt"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "Kunde",
+            "table": "Kontakt"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "KundeInit",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "5"
+              },
+              "destination": {
+                "name": "KundeInit",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "FirmaID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "FirmaID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "Fornavn",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "Fornavn",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "Efternavn",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "Efternavn",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "TlfFastnet",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "25"
+              },
+              "destination": {
+                "name": "TlfFastnet",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "TlfMobil",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "25"
+              },
+              "destination": {
+                "name": "TlfMobil",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "Salgsmaal",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "Salgsmaal",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "Mailadr",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "Mailadr",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "Web",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "Web",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "f4fa079a-50ae-4d1d-959f-3cd2d7141e5b",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Prod",
+            "table": "Vare"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "Prod",
+            "table": "Vare"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "VareID",
+                "type": "Int16",
+                "physicalType": "smallint"
+              },
+              "destination": {
+                "name": "VareID",
+                "physicalType": "smallint"
+              }
+            },
+            {
+              "source": {
+                "name": "Navn",
+                "type": "String",
+                "physicalType": "varchar",
+                "length": "30"
+              },
+              "destination": {
+                "name": "Navn",
+                "physicalType": "varchar",
+                "length": "30"
+              }
+            },
+            {
+              "source": {
+                "name": "Kvantum",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "Kvantum",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "VareKatID",
+                "type": "Int16",
+                "physicalType": "smallint"
+              },
+              "destination": {
+                "name": "VareKatID",
+                "physicalType": "smallint"
+              }
+            },
+            {
+              "source": {
+                "name": "VarePris",
+                "type": "Decimal",
+                "physicalType": "decimal",
+                "scale": 2,
+                "precision": 9
+              },
+              "destination": {
+                "name": "VarePris",
+                "physicalType": "decimal",
+                "scale": 2,
+                "precision": 9
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "e13984ad-3eac-4d5a-a1f1-0f78266d45a0",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Prod",
+            "table": "VareKategori"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "Prod",
+            "table": "VareKategori"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "a477a719-ce96-4408-a80d-34d0a3ae6da3",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Salg",
+            "table": "Ordre"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "Salg",
+            "table": "Ordre"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "OrdreID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "OrdreID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "OrdreDato",
+                "type": "DateTime",
+                "physicalType": "date"
+              },
+              "destination": {
+                "name": "OrdreDato",
+                "physicalType": "date"
+              }
+            },
+            {
+              "source": {
+                "name": "FirmaID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "FirmaID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "KundeInit",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "5"
+              },
+              "destination": {
+                "name": "KundeInit",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "AnsatID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "AnsatID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "AfsendelsesDato",
+                "type": "DateTime",
+                "physicalType": "date"
+              },
+              "destination": {
+                "name": "AfsendelsesDato",
+                "physicalType": "date"
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "5a58490c-2acc-4024-83f6-006587acae29",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "Salg",
+            "table": "OrdreLinie"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "Salg",
+            "table": "OrdreLinie"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "OrdreID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "OrdreID",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "LinieNr",
+                "type": "Byte",
+                "physicalType": "tinyint"
+              },
+              "destination": {
+                "name": "LinieNr",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "VareID",
+                "type": "Int16",
+                "physicalType": "smallint"
+              },
+              "destination": {
+                "name": "VareID",
+                "physicalType": "smallint"
+              }
+            },
+            {
+              "source": {
+                "name": "Antal",
+                "type": "Byte",
+                "physicalType": "tinyint"
+              },
+              "destination": {
+                "name": "Antal",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "Rabat_Pct",
+                "type": "Byte",
+                "physicalType": "tinyint"
+              },
+              "destination": {
+                "name": "Rabat_Pct",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "SubTotal",
+                "type": "Decimal",
+                "physicalType": "decimal",
+                "scale": 2,
+                "precision": 9
+              },
+              "destination": {
+                "name": "SubTotal",
+                "physicalType": "decimal",
+                "scale": 2,
+                "precision": 9
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

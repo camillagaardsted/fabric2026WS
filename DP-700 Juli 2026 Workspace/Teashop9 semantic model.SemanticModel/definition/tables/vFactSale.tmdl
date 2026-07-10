@@ -1,0 +1,122 @@
+table vFactSale
+	lineageTag: 2567052a-cb20-4a9d-b296-95256fc2288c
+	sourceLineageTag: [powerbi].[vFactSale]
+
+	measure 'Total Fragt' = sum(vFactSale[FreightPart])
+		formatString: 0
+		lineageTag: a6f97af7-eefb-4f2a-97d3-4f632f6c0c1a
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Total Sales' = sumx(vFactSale,vFactSale[quantity]*RELATED(vProduct[retail_price])*(1-vFactSale[discount_pct])/100)
+		formatString: 0
+		lineageTag: 963b5532-b3bd-48b9-835e-ce7c8f82f963
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column order_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: ba2c6853-aed5-4c6d-9741-becaa2804251
+		sourceLineageTag: order_date
+		summarizeBy: none
+		sourceColumn: order_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: ba9d1a9c-33da-4241-ad14-2ca0f5d06b6d
+		sourceLineageTag: ship_date
+		summarizeBy: none
+		sourceColumn: ship_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 724a780f-7580-4e9e-bf63-3ba5f9a729e5
+		sourceLineageTag: employee_id
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: b9fb2dea-aa46-44ea-b1aa-223ed1ad3d34
+		sourceLineageTag: product_id
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: cff30442-ded4-46ea-baee-aabaf9dc4f22
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_pct
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5b8e1938-01b8-4e87-a4ce-44e751891280
+		sourceLineageTag: discount_pct
+		summarizeBy: sum
+		sourceColumn: discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 891cdc38-c7a8-4d63-b20e-861a04418a5a
+		sourceLineageTag: company_id
+		summarizeBy: none
+		sourceColumn: company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column FreightPart
+		dataType: double
+		sourceProviderType: numeric(23, 14)
+		lineageTag: fb5e3a42-3a77-4535-99ae-dfe880e991ed
+		sourceLineageTag: FreightPart
+		summarizeBy: sum
+		sourceColumn: FreightPart
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition vFactSale = entity
+		mode: directLake
+		source
+			entityName: vFactSale
+			schemaName: powerbi
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

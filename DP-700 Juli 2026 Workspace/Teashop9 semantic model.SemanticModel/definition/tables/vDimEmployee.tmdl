@@ -1,0 +1,44 @@
+table vDimEmployee
+	lineageTag: cbfbe2fe-26d8-4301-b047-abbd6f324ced
+	sourceLineageTag: [powerbi].[vDimEmployee]
+
+	column EmployeeName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9ca1047e-665b-424a-8d92-75f6064a4317
+		sourceLineageTag: EmployeeName
+		summarizeBy: none
+		sourceColumn: EmployeeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: 896b0acf-1ba1-4e83-ab5e-515221a49642
+		sourceLineageTag: employee_id
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4dd5c391-23f9-4e14-b9c6-67d094f18547
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vDimEmployee = entity
+		mode: directLake
+		source
+			entityName: vDimEmployee
+			schemaName: powerbi
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
