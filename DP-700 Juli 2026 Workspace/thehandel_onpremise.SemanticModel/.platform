@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "thehandel_onpremise"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "feac96cf-1453-88cf-484c-2d6ef3d43929"
+  }
+}

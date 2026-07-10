@@ -1,0 +1,63 @@
+table 'Kunde Firma'
+	lineageTag: 4ad33a0a-e671-4afc-9c44-154fd062a022
+
+	column FirmaID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2dea9151-8af9-468e-b6e7-6bf111cb7fe1
+		summarizeBy: none
+		sourceColumn: FirmaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Navn
+		dataType: string
+		lineageTag: 41c19f73-fa14-4a04-8165-70c91361bd64
+		summarizeBy: none
+		sourceColumn: Navn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Adr1
+		dataType: string
+		lineageTag: 0fe73509-6a41-43fa-b21f-8c281857d475
+		summarizeBy: none
+		sourceColumn: Adr1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Adr2
+		dataType: string
+		lineageTag: 8570f012-3cc6-4713-9ab2-854694903ead
+		summarizeBy: none
+		sourceColumn: Adr2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostNr
+		dataType: int64
+		formatString: 0
+		lineageTag: 63959a4f-e5cb-4d94-8010-25cc9388221e
+		summarizeBy: none
+		sourceColumn: PostNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column LandID
+		dataType: int64
+		formatString: 0
+		lineageTag: ce65297f-a41f-4190-991e-686c2888151b
+		summarizeBy: none
+		sourceColumn: LandID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kunde Firma' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "thehandel"),
+				    Kunde_Firma = Source{[Schema="Kunde",Item="Firma"]}[Data]
+				in
+				    Kunde_Firma
+

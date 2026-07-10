@@ -1,0 +1,20 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: da-DK
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Kunde Firma","Salg Ordre"]
+
+ref table 'Kunde Firma'
+ref table 'Salg Ordre'
+ref table DateTableTemplate_34ac8cf8-cfff-4a6d-9e37-cc2cc5cd6f3d
+ref table LocalDateTable_2bc8c3e2-8561-4842-b687-4a9574d23d88
+ref table LocalDateTable_e5187402-42ea-4609-b2bf-0e10210b1384
+
+ref cultureInfo en-US
+

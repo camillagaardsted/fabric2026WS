@@ -1,0 +1,81 @@
+table 'Salg Ordre'
+	lineageTag: 4d99c466-8619-4749-9bd5-5ebcab5fc5b6
+
+	column OrdreID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a49bf60-b84b-4f5a-b5bb-eb967d012308
+		summarizeBy: count
+		sourceColumn: OrdreID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdreDato
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5b222f7b-1725-4593-ad30-86e8ced83f68
+		summarizeBy: none
+		sourceColumn: OrdreDato
+
+		variation Variation
+			isDefault
+			relationship: e5fb0c8f-d6a2-40b6-85a8-de064994d500
+			defaultHierarchy: LocalDateTable_2bc8c3e2-8561-4842-b687-4a9574d23d88.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FirmaID
+		dataType: int64
+		formatString: 0
+		lineageTag: cd5b5450-1d8b-4365-878e-a1e4af50d274
+		summarizeBy: none
+		sourceColumn: FirmaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column KundeInit
+		dataType: string
+		lineageTag: 79c40029-a572-4e46-b67d-5db7f97f1f94
+		summarizeBy: none
+		sourceColumn: KundeInit
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnsatID
+		dataType: int64
+		formatString: 0
+		lineageTag: 79d134d1-fbcc-4fed-8f11-2d99de20233f
+		summarizeBy: count
+		sourceColumn: AnsatID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AfsendelsesDato
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 99e94669-acce-4a83-b93f-9006eb20d1e9
+		summarizeBy: none
+		sourceColumn: AfsendelsesDato
+
+		variation Variation
+			isDefault
+			relationship: 9a2e417d-31eb-42b7-bf0e-ed26bcfd9c68
+			defaultHierarchy: LocalDateTable_e5187402-42ea-4609-b2bf-0e10210b1384.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Salg Ordre' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "thehandel"),
+				    Salg_Ordre = Source{[Schema="Salg",Item="Ordre"]}[Data]
+				in
+				    Salg_Ordre
+
+	annotation PBI_ResultType = Table
+

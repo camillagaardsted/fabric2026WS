@@ -1,0 +1,14 @@
+relationship e5fb0c8f-d6a2-40b6-85a8-de064994d500
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salg Ordre'.OrdreDato
+	toColumn: LocalDateTable_2bc8c3e2-8561-4842-b687-4a9574d23d88.Date
+
+relationship 9a2e417d-31eb-42b7-bf0e-ed26bcfd9c68
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salg Ordre'.AfsendelsesDato
+	toColumn: LocalDateTable_e5187402-42ea-4609-b2bf-0e10210b1384.Date
+
+relationship AutoDetected_ce4bc902-8660-473f-aecd-1ee08c143438
+	fromColumn: 'Salg Ordre'.FirmaID
+	toColumn: 'Kunde Firma'.FirmaID
+
